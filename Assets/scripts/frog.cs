@@ -22,7 +22,8 @@ public class frog : MonoBehaviour
         rigidbody.AddRelativeForce(Vector3.forward * speed, ForceMode.VelocityChange);
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            rigidbody.AddForce(Vector3.up * 100f);
+            rigidbody.AddForce(Vector3.up * 400f);
+
             Debug.Log("skacz");
         }
         if (Input.GetKey(KeyCode.LeftArrow))
