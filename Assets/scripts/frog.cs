@@ -4,15 +4,35 @@ using UnityEngine;
 
 public class frog : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private Rigidbody rigidbody;
+    public float speed;
     void Start()
     {
-        
+        rigidbody = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         
+    }
+    private void FixedUpdate()
+    {
+        //rigidbody.velocity = Vector3.forward * speed;
+        rigidbody.AddRelativeForce(Vector3.forward * speed, ForceMode.VelocityChange);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rigidbody.AddForce(Vector3.up * 200f);
+            Debug.Log("skacz");
+        }
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            transform.Rotate(new Vector3(0, -1, 0));
+        }
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            transform.Rotate(new Vector3(0, 1, 0));
+        }
     }
 }
