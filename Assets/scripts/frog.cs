@@ -19,7 +19,11 @@ public class frog : MonoBehaviour
     
     void Update()
     {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        //transform.Translate(Vector3.forward * speed * Time.deltaTime);
+
+       
+        transform.position = transform.position + (Vector3.forward * speed * Time.deltaTime);
+
     }
     private void FixedUpdate()
     {
@@ -59,4 +63,5 @@ public class frog : MonoBehaviour
            
         }
     }
+
 }
