@@ -1,0 +1,62 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class FrogController : MonoBehaviour
+{
+    public float jumpSpeed = 8.0F;
+    public float gravity = 20.0F;
+    private Vector3 moveDirection = Vector3.zero;
+    private CharacterController controller;
+    public float moveSpeed = 1f;
+    private Animator animator;
+
+    private void Start()
+    {
+        controller = GetComponent<CharacterController>();
+
+        animator = GetComponent<Animator>();
+    }
+
+    void Update()
+    {
+        if (controller.isGrounded && Input.GetKeyDown(KeyCode.Space))
+        {
+            moveDirection.y = jumpSpeed;
+        }
+        moveDirection.y -= gravity * Time.deltaTime;
+
+        moveDirection.x = 0;
+        moveDirection.z = 0;
+
+        animator.SetBool("jumping", controller.isGrounded ==false);
+
+
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            moveDirection += transform.forward * moveSpeed;
+            animator.SetBool("walking", true);
+
+        }
+        else
+        {
+            animator.SetBool("walking", false);
+
+        }
+
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            transform.Rotate(new Vector3(0, -1, 0));
+        
+        }
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            transform.Rotate(new Vector3(0, 1, 0));
+
+        }
+
+        controller.Move(moveDirection * Time.deltaTime);
+    }
+}
+
