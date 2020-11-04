@@ -19,10 +19,10 @@ public class frog : MonoBehaviour
     
     void Update()
     {
-        //transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
        
-        transform.position = transform.position + (Vector3.forward * speed * Time.deltaTime);
+        //transform.position = transform.position + (Vector3.forward * speed * Time.deltaTime);
 
     }
     private void FixedUpdate()
@@ -33,16 +33,19 @@ public class frog : MonoBehaviour
         {
             rigidbody.AddForce(Vector3.up * jump, ForceMode.Impulse);
 
+
             Debug.Log("skacz");
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Rotate(new Vector3(0, -1, 0));
+            //transform.position += Vector3.left;
         }
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.Rotate(new Vector3(0, 1, 0));
+            //transform.position += Vector3.right;
         }
 
         
@@ -60,7 +63,6 @@ public class frog : MonoBehaviour
         if (other.collider.tag == "ground")
         {
             grounded = false;
-           
         }
     }
 

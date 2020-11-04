@@ -9060,6 +9060,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1474580326}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1517558404 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2382613185267606779, guid: 4260ef035c4f3e74aa82d3d1df2f5242,
+    type: 3}
+  m_PrefabInstance: {fileID: 2382613187235319327}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1517558413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517558404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40d5cde700270f741979f7f305313391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 60
+  jumpVelocity: 4
 --- !u!1 &1520200204
 GameObject:
   m_ObjectHideFlags: 0
@@ -12970,6 +12990,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2002463465, guid: 4260ef035c4f3e74aa82d3d1df2f5242, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2002463465, guid: 4260ef035c4f3e74aa82d3d1df2f5242, type: 3}
+      propertyPath: jump
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2002463465, guid: 4260ef035c4f3e74aa82d3d1df2f5242, type: 3}
+      propertyPath: speed
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 2002463466, guid: 4260ef035c4f3e74aa82d3d1df2f5242, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2382613185267606775, guid: 4260ef035c4f3e74aa82d3d1df2f5242,
         type: 3}
       propertyPath: m_LocalPosition.x
