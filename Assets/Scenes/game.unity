@@ -13039,6 +13039,7 @@ GameObject:
   - component: {fileID: 2382613186579506027}
   - component: {fileID: 2382613186579506028}
   - component: {fileID: 2382613186579506029}
+  - component: {fileID: 2382613186579506031}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -13046,6 +13047,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2382613186579506031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2382613186579506030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c36c4182ea295fb409db041efd3415e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5402411812904997128
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13057,6 +13070,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Frog
+      objectReference: {fileID: 0}
+    - target: {fileID: 5402411812322873941, guid: ccfb634dbb275464c9d427d165138ca7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5402411812322873960, guid: ccfb634dbb275464c9d427d165138ca7,
         type: 3}

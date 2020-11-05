@@ -32,25 +32,22 @@ public class FrogController : MonoBehaviour
         animator.SetBool("jumping", controller.isGrounded ==false);
 
 
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            moveDirection += transform.forward * moveSpeed;
-            animator.SetBool("walking", true);
+       
+        
+         moveDirection += transform.forward * moveSpeed;
+         animator.SetBool("walking", true);
 
-        }
-        else
-        {
-            animator.SetBool("walking", false);
+       
+      
+        
 
-        }
-
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow)&&controller.isGrounded)
         {
             transform.Rotate(new Vector3(0, -1, 0));
         
         }
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow)&& controller.isGrounded)
         {
             transform.Rotate(new Vector3(0, 1, 0));
 
