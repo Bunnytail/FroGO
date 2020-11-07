@@ -1,15 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FrogController : MonoBehaviour
 {
+    public static FrogController instance;
+    public Text scoreTextPrefab;
+    public int points = 0;
+
     public float jumpSpeed = 8.0F;
     public float gravity = 20.0F;
     private Vector3 moveDirection = Vector3.zero;
     private CharacterController controller;
     public float moveSpeed = 1f;
     private Animator animator;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
@@ -54,6 +64,7 @@ public class FrogController : MonoBehaviour
         }
 
         controller.Move(moveDirection * Time.deltaTime);
+        scoreTextPrefab.text = "Score: " + points.ToString();
     }
 }
 

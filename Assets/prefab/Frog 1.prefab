@@ -162,6 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 913c751b2a28ad249b4a49035c5eefce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreTextPrefab: {fileID: 0}
+  points: 0
   jumpSpeed: 40
   gravity: 30
   moveSpeed: 30

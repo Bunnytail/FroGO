@@ -5,22 +5,34 @@ using UnityEngine.UI;
 
 public class Coins : MonoBehaviour
 {
-    public Text scoreTextPrefab;
-    public GameObject coin;
-	private int points = 0;
+    //public Text scoreTextPrefab;
+    //public GameObject coin;
+	//private int points = 0;
 	void Update()
 	{
-		scoreTextPrefab.text = "Score: " + points;
+        transform.Rotate(Vector3.up);
+	//	scoreTextPrefab.text = "Score: " + points;
 	}
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        if (collision.collider.tag == "Player")
+        if (other.name == "Frog")
         {
-            coin.SetActive(false);
-            points++;
+            FrogController.instance.points++;
+            this.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            this.gameObject.GetComponent<BoxCollider>().enabled = false;
+            //coin.SetActive(false);
+            //points++;
             Debug.Log("kolizja");
+            StartCoroutine(WaitingToResetCoins());
 
         }
+    }
+
+    IEnumerator WaitingToResetCoins()
+    {
+        yield return new WaitForSeconds(15);
+        this.gameObject.GetComponent<MeshRenderer>().enabled = true;
+        this.gameObject.GetComponent<BoxCollider>().enabled = true;
     }
 }
