@@ -9,8 +9,8 @@ public class DeathMenu : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    void Update()
+    public void ToggleEndMenu()
     {
-        
+        gameObject.SetActive(true);
     }
 }
