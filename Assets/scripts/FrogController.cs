@@ -11,6 +11,7 @@ public class FrogController : MonoBehaviour
     public float moveSpeed = 1f;
     private Animator animator;
     private bool frogIsMoving = false;
+    public PauseMenu pauseMenu;
 
     private void Start()
     {
@@ -57,6 +58,12 @@ public class FrogController : MonoBehaviour
             }
 
             controller.Move(moveDirection * Time.deltaTime);
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                frogIsMoving = false;
+                pauseMenu.TogglePauseMenu();
+            }
         }
     }
 }
