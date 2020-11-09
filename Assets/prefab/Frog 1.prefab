@@ -167,6 +167,7 @@ MonoBehaviour:
   jumpSpeed: 40
   gravity: 30
   moveSpeed: 30
+  pauseMenu: {fileID: 0}
 --- !u!95 &5402411812322873961
 Animator:
   serializedVersion: 3
