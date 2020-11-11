@@ -19125,7 +19125,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2382613186579506030}
   m_LocalRotation: {x: 0.1339788, y: -0, z: -0, w: 0.99098426}
-  m_LocalPosition: {x: 0, y: 88.08182, z: -100.7}
+  m_LocalPosition: {x: 0, y: 37.6, z: -45.7}
   m_LocalScale: {x: 2.965085, y: 2.169204, z: 2.169204}
   m_Children: []
   m_Father: {fileID: 0}
@@ -19248,7 +19248,7 @@ PrefabInstance:
     - target: {fileID: 5402411812322873942, guid: ccfb634dbb275464c9d427d165138ca7,
         type: 3}
       propertyPath: moveSpeedJumping
-      value: 35
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5402411812322873942, guid: ccfb634dbb275464c9d427d165138ca7,
         type: 3}
