@@ -14,6 +14,7 @@ public class FrogController : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     private CharacterController controller;
     public float moveSpeed = 1f;
+    public float moveSpeedJumping = 1f;
     private Animator animator;
     private bool frogIsMoving = false;
     public PauseMenu pauseMenu;
@@ -45,6 +46,7 @@ public class FrogController : MonoBehaviour
     public void startFrogMovement()
     {
         frogIsMoving = true;
+        transform.localEulerAngles = Vector3.zero;
     }
 
     void Update()
@@ -61,17 +63,25 @@ public class FrogController : MonoBehaviour
             moveDirection.z = 0;
 
             animator.SetBool("jumping", controller.isGrounded == false);
+            if (controller.isGrounded)
+            {
+                moveDirection += transform.forward * moveSpeed;
+            }
+            else
+            {
+                moveDirection += transform.forward * moveSpeedJumping;
+            }
             moveDirection += transform.forward * moveSpeed;
             animator.SetBool("walking", true);
 
             if (Input.GetKey(KeyCode.LeftArrow) && controller.isGrounded)
             {
-                transform.Rotate(new Vector3(0, -1, 0));
+                transform.Rotate(new Vector3(0, -2, 0));
             }
 
             if (Input.GetKey(KeyCode.RightArrow) && controller.isGrounded)
             {
-                transform.Rotate(new Vector3(0, 1, 0));
+                transform.Rotate(new Vector3(0, 2, 0));
             }
 
             controller.Move(moveDirection * Time.deltaTime);
