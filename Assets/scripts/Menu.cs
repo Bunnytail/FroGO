@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+    public GameObject shop;
     public void StartGame()
     {
         SceneManager.LoadScene("game");
@@ -14,4 +15,10 @@ public class Menu : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void OpenShop()
+    {
+        shop.SetActive(true);
+    }
+
 }

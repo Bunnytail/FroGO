@@ -18,7 +18,10 @@ public class Coins : MonoBehaviour
     {
         if (other.name == "Frog")
         {
-            FrogController.instance.points++;
+            int points = PlayerPrefs.GetInt("points", 0);
+            points++;
+            FrogController.instance.points = points;
+            PlayerPrefs.SetInt("points", points);
             this.gameObject.GetComponent<MeshRenderer>().enabled = false;
             this.gameObject.GetComponent<BoxCollider>().enabled = false;
             //coin.SetActive(false);

@@ -168,6 +168,11 @@ MonoBehaviour:
   gravity: 30
   moveSpeed: 30
   pauseMenu: {fileID: 0}
+  skins:
+  - {fileID: 2100000, guid: ae8e12026296dc545ab546c1a61084f9, type: 2}
+  - {fileID: 2100000, guid: dce6039b0f84f8a40ba50184796b7c44, type: 2}
+  - {fileID: 2100000, guid: dae97bc9019646345814cf03d5da7b60, type: 2}
+  mesh: {fileID: 5402411813629901806}
 --- !u!95 &5402411812322873961
 Animator:
   serializedVersion: 3

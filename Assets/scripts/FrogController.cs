@@ -9,14 +9,17 @@ public class FrogController : MonoBehaviour
     public Text scoreTextPrefab;
     public int points = 0;
 
-    public float jumpSpeed = 8.0F;
-    public float gravity = 20.0F;
+    public float jumpSpeed = 100.0F;
+    public float gravity = 100.0F;
     private Vector3 moveDirection = Vector3.zero;
     private CharacterController controller;
     public float moveSpeed = 1f;
     private Animator animator;
     private bool frogIsMoving = false;
     public PauseMenu pauseMenu;
+
+    public Material[] skins;
+    public MeshRenderer mesh;
 
     private void Awake()
     {
@@ -28,6 +31,10 @@ public class FrogController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         frogIsMoving = true;
+        points = PlayerPrefs.GetInt("points", 0);
+
+        int skin = PlayerPrefs.GetInt("skin", 0);
+        SetSkin(skin);
     }
 
     public void stopFrogMovement()
@@ -76,6 +83,11 @@ public class FrogController : MonoBehaviour
             }
         }
         scoreTextPrefab.text = "Score: " + points.ToString();
+    }
+
+    public void SetSkin(int skin)
+    {
+        mesh.material = skins[skin];
     }
 }
 
