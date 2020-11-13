@@ -20,7 +20,7 @@ public class FrogController : MonoBehaviour
     public PauseMenu pauseMenu;
 
     public Material[] skins;
-    public MeshRenderer mesh;
+    public SkinnedMeshRenderer mesh;
 
     private void Awake()
     {
