@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Respawn : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class Respawn : MonoBehaviour
 
             player.transform.position = respawnPoint.transform.position;
             Physics.SyncTransforms();
+            player.transform.rotation = respawnPoint.transform.rotation;
 
             frog.stopFrogMovement();
         }
