@@ -8,6 +8,7 @@ public class FrogController : MonoBehaviour
     public static FrogController instance;
     public Text scoreTextPrefab;
     public int points = 0;
+    public int currentpoints = 0;
     public DeathMenu deathMenu;
 
     public float jumpSpeed = 100.0F;
@@ -37,12 +38,12 @@ public class FrogController : MonoBehaviour
     private void Start()
     {
         controller = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         frogIsMoving = true;
 
         int skin = PlayerPrefs.GetInt("skin", 0);
         SetSkin(skin);
-        setPoints(0);
+      
 
         VelocityHash = Animator.StringToHash("jumpPower");
     }
@@ -56,12 +57,21 @@ public class FrogController : MonoBehaviour
     {
         frogIsMoving = true;
         transform.localEulerAngles = Vector3.zero;
+        currentpoints = 0;
     }
 
-    public void setPoints(int newScore)
+    public void AddPoint()
     {
-        points = newScore;
+        points = PlayerPrefs.GetInt("points", 0);
+        points += 1;
+        currentpoints += 1;
         PlayerPrefs.SetInt("points", points);
+       
+    }
+
+    public int GetCurrentPoints()
+    {
+        return currentpoints;
     }
 
     void Update()
@@ -122,7 +132,7 @@ public class FrogController : MonoBehaviour
                 pauseMenu.TogglePauseMenu();
             }
         }
-        scoreTextPrefab.text = "Score: " + points.ToString();
+        scoreTextPrefab.text = "Score: " + currentpoints;
 
         
     }

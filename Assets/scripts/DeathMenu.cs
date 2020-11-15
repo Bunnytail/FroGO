@@ -16,6 +16,6 @@ public class DeathMenu : MonoBehaviour
     {
         int points = PlayerPrefs.GetInt("points", 0);
         gameObject.SetActive(true);
-        scoreText.text = points.ToString();
+        scoreText.text = FrogController.instance.GetCurrentPoints().ToString();
     }
 }
