@@ -20,7 +20,7 @@ public class Coins : MonoBehaviour
         {
             int points = PlayerPrefs.GetInt("points", 0);
             points++;
-            FrogController.instance.points = points;
+            FrogController.instance.points++;
             PlayerPrefs.SetInt("points", points);
             this.gameObject.GetComponent<MeshRenderer>().enabled = false;
             this.gameObject.GetComponent<BoxCollider>().enabled = false;

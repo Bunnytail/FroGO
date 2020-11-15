@@ -11,13 +11,6 @@ public class shop : MonoBehaviour
     {
         pointstext.text = "points: " + PlayerPrefs.GetInt("points", 0);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Lewoklik()
     {
         int skin = PlayerPrefs.GetInt("skin", 0);
@@ -40,4 +33,5 @@ public class shop : MonoBehaviour
         frog.SetSkin(skin);
         PlayerPrefs.SetInt("skin", skin);
     }
+    
 }

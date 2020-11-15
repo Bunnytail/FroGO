@@ -32,7 +32,7 @@ public class FrogController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         frogIsMoving = true;
-        points = PlayerPrefs.GetInt("points", 0);
+        //points = PlayerPrefs.GetInt("points", 0);
 
         int skin = PlayerPrefs.GetInt("skin", 0);
         SetSkin(skin);
