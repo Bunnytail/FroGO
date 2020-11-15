@@ -97,6 +97,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: dce6039b0f84f8a40ba50184796b7c44, type: 2}
   - {fileID: 2100000, guid: dae97bc9019646345814cf03d5da7b60, type: 2}
   mesh: {fileID: 7609192606426769476}
+  acceleration: 0.1
+  deceleration: 0.5
 --- !u!95 &5402411812322873961
 Animator:
   serializedVersion: 3

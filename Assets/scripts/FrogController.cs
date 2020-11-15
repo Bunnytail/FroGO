@@ -23,6 +23,12 @@ public class FrogController : MonoBehaviour
     public Material[] skins;
     public SkinnedMeshRenderer mesh;
 
+    int VelocityHash;
+    public float acceleration = 0.9f;
+    public float deceleration = 0.8f;
+    float velocity = 0.0f;
+    bool jumpPresed;
+
     private void Awake()
     {
         instance = this;
@@ -37,6 +43,8 @@ public class FrogController : MonoBehaviour
         int skin = PlayerPrefs.GetInt("skin", 0);
         SetSkin(skin);
         setPoints(0);
+
+        VelocityHash = Animator.StringToHash("jumpPower");
     }
 
     public void stopFrogMovement()
@@ -60,9 +68,24 @@ public class FrogController : MonoBehaviour
     {
         if (frogIsMoving)
         {
-            if (controller.isGrounded && Input.GetKeyDown(KeyCode.Space))
+            if (controller.isGrounded && Input.GetKey(KeyCode.Space))
             {
                 moveDirection.y = jumpSpeed;
+                bool jumpPresed = true;
+                if (jumpPresed && velocity < 1.0f)
+                {
+                    velocity += Time.deltaTime * acceleration;
+                }
+                if (!jumpPresed && velocity > 0.0f)
+                {
+                    velocity -= Time.deltaTime * deceleration;
+                }
+                if (!jumpPresed && velocity < 0.0f)
+                {
+                    velocity = 0.0f;
+                }
+                animator.SetFloat(VelocityHash, velocity);
+
             }
             moveDirection.y -= gravity * Time.deltaTime;
 
@@ -100,6 +123,8 @@ public class FrogController : MonoBehaviour
             }
         }
         scoreTextPrefab.text = "Score: " + points.ToString();
+
+        
     }
 
     public void SetSkin(int skin)
