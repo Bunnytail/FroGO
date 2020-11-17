@@ -29,6 +29,7 @@ public class FrogController : MonoBehaviour
     public float deceleration = 0.8f;
     float velocity = 0.0f;
     bool jumpPresed;
+    private float jumptimer = 0.0f;
 
     private void Awake()
     {
@@ -78,23 +79,35 @@ public class FrogController : MonoBehaviour
     {
         if (frogIsMoving)
         {
-            if (controller.isGrounded && Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space))
             {
-                moveDirection.y = jumpSpeed;
-                bool jumpPresed = true;
-                if (jumpPresed && velocity < 1.0f)
+                if (controller.isGrounded)
                 {
-                    velocity += Time.deltaTime * acceleration;
+                    jumptimer = 0.5f;
                 }
-                if (!jumpPresed && velocity > 0.0f)
+
+                if (jumptimer > 0.0f)
                 {
-                    velocity -= Time.deltaTime * deceleration;
+                    jumptimer -= Time.deltaTime;
+                    moveDirection.y = jumpSpeed;
                 }
-                if (!jumpPresed && velocity < 0.0f)
-                {
-                    velocity = 0.0f;
-                }
-                animator.SetFloat(VelocityHash, velocity);
+
+                
+
+                //bool jumpPresed = true;
+                //if (jumpPresed && velocity < 1.0f)
+                //{
+                //    velocity += Time.deltaTime * acceleration;
+                //}
+                //if (!jumpPresed && velocity > 0.0f)
+                //{
+                //    velocity -= Time.deltaTime * deceleration;
+                //}
+                //if (!jumpPresed && velocity < 0.0f)
+                //{
+                //    velocity = 0.0f;
+                //}
+                //animator.SetFloat(VelocityHash, velocity);
 
             }
             moveDirection.y -= gravity * Time.deltaTime;
