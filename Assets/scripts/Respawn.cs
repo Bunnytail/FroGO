@@ -5,12 +5,18 @@ using UnityEngine.UI;
 
 public class Respawn : MonoBehaviour
 {
-    [SerializeField] private Transform player;
-    [SerializeField] private Transform respawnPoint;
+    [SerializeField] public Transform player;
+    [SerializeField] public Transform respawnPoint;
     public DeathMenu deathMenu;
     public FrogController frog;
+    public static Respawn respawn;
 
-    private void OnTriggerEnter(Collider other)
+    void Awake()
+    {
+        respawn = this;
+    }
+
+    void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {

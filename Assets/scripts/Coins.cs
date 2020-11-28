@@ -32,7 +32,7 @@ public class Coins : MonoBehaviour
 
     IEnumerator WaitingToResetCoins()
     {
-        yield return new WaitForSeconds(15);
+        yield return new WaitForSeconds(10);
         this.gameObject.GetComponent<MeshRenderer>().enabled = true;
         this.gameObject.GetComponent<BoxCollider>().enabled = true;
     }
