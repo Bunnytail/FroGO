@@ -14,7 +14,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: frog
-    second: {fileID: 972500131278743227, guid: 3ad359577603f7746b709fba550d2249, type: 3}
+    second: {instanceID: 0}
   materials:
     materialImportMode: 1
     materialName: 0
