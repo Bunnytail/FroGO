@@ -18,7 +18,7 @@ public class FrogControllerNew : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && cc.isGrounded)
+        if(Input.GetKeyDown(KeyCode.Space)) // && cc.isGrounded)
         {
             anim.SetTrigger("Jump");
         }
