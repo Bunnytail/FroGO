@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class shop : MonoBehaviour
 {
     public Text pointstext;
-    public FrogController frog;
+    public FrogControllerNew frog;
     public GameObject buttonBuy;
     public Text textbuy;
     public GameObject buttonEquip;
@@ -61,7 +61,6 @@ public class shop : MonoBehaviour
 
     public void Refresh()
     {
-
         string skinname = "skin_" + skin;
         int price = skin * 2;
         bool bought = PlayerPrefs.GetInt(skinname, 0) == 1;

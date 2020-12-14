@@ -16,10 +16,10 @@ public class Coins : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.name == "Frog")
+        FrogControllerNew frog = other.GetComponent<FrogControllerNew>();
+        if (frog != null)
         {
-            
-            FrogController.instance.AddPoint();
+            frog.AddPoint();
             
             this.gameObject.GetComponent<MeshRenderer>().enabled = false;
             this.gameObject.GetComponent<BoxCollider>().enabled = false;

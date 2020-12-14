@@ -39,7 +39,6 @@ public class FrogController : MonoBehaviour
 
         int skin = PlayerPrefs.GetInt("skin", 0);
         SetSkin(skin);
-      
     }
 
     public void stopFrogMovement()
