@@ -7,15 +7,18 @@ public class Coins : MonoBehaviour
 {
     //public Text scoreTextPrefab;
     //public GameObject coin;
-	//private int points = 0;
+    //private int points = 0;
+    public ParticleSystem ps; 
 	void Update()
 	{
-        transform.Rotate(Vector3.up);
+        transform.Rotate(Vector3.forward);
 	//	scoreTextPrefab.text = "Score: " + points;
 	}
 
     void OnTriggerEnter(Collider other)
     {
+        ps.Play(true);
+        //ps = GetComponent<ParticleSystem>();
         FrogControllerNew frog = other.GetComponent<FrogControllerNew>();
         if (frog != null)
         {
@@ -27,6 +30,8 @@ public class Coins : MonoBehaviour
             //points++;
             //Debug.Log("kolizja");
             StartCoroutine(WaitingToResetCoins());
+
+
         }
     }
 
