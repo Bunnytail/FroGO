@@ -10,18 +10,13 @@ public class intro : MonoBehaviour
     public GameObject leftButton;
     public Image image;
     private int slide;
-    public Sprite[] textures;
+    //public Sprite[] textures = new Sprite[3];
+    public List<Sprite> textures = new List<Sprite>();
     void Start()
     {
+        slide = 0;
         image.sprite = textures[slide];
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Left()
     {
         if (slide > 0)
@@ -34,13 +29,14 @@ public class intro : MonoBehaviour
     public void Right()
     {
         slide++;
-        if (slide >= textures.Length)
+        if (slide >= textures.Count)
         {
             SceneManager.LoadScene("menu");
         }
         else
         {
             image.sprite = textures[slide];
+            //image.GetComponent<Image>().sprite = textures[slide];
         }
     }
 

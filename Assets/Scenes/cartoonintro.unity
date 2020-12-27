@@ -156,8 +156,8 @@ Camera:
   m_GameObject: {fileID: 208587211}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.54498667, g: 0.7735849, b: 0.51450694, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -862,21 +862,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3443396, g: 1, b: 0.5964603, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 45ed24b5364de6b4a902af059f0e7625, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
+  m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
 --- !u!114 &1273468943
 MonoBehaviour:
@@ -885,14 +885,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1273468941}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc4c06389fc90714193b465918156297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftButton: {fileID: 0}
-  image: {fileID: 0}
-  textures: []
+  leftButton: {fileID: 316557464}
+  image: {fileID: 1273468942}
+  textures:
+  - {fileID: 21300000, guid: 45ed24b5364de6b4a902af059f0e7625, type: 3}
+  - {fileID: 21300000, guid: e372362a9edb55f489e3b32a4ba854ca, type: 3}
+  - {fileID: 21300000, guid: 2e1e4a4979d6877459a3d18025f10208, type: 3}
 --- !u!222 &1273468944
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -915,10 +918,10 @@ RectTransform:
   m_Father: {fileID: 1596588088}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 469.5, y: 517.7}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1470701686
 GameObject:
@@ -1033,9 +1036,9 @@ MonoBehaviour:
   leftButton: {fileID: 316557464}
   image: {fileID: 1273468942}
   textures:
-  - {fileID: 2800000, guid: 50fc08ee9f8460944b59ab1756d6d582, type: 3}
-  - {fileID: 2800000, guid: 2626232105e6778469f7a93a84f77cbc, type: 3}
-  - {fileID: 2800000, guid: 5acf8057b90b5ca45ae2220051fd7637, type: 3}
+  - {fileID: 21300000, guid: 45ed24b5364de6b4a902af059f0e7625, type: 3}
+  - {fileID: 21300000, guid: e372362a9edb55f489e3b32a4ba854ca, type: 3}
+  - {fileID: 21300000, guid: 2e1e4a4979d6877459a3d18025f10208, type: 3}
 --- !u!114 &1596588085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1065,7 +1068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
