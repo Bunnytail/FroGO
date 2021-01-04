@@ -9,12 +9,14 @@ public class FrogControllerNew : MonoBehaviour
     public int points = 0;
     public int currentpoints = 0;
     public Material[] skins;
+    public GameObject[] hats;
     public SkinnedMeshRenderer mesh;
     public Text scoreText;
     public DeathMenu deathMenu;
     private CharacterController cc;
     private Animator anim;
     private Vector3 moveDirection = Vector3.zero;
+
 
     void Start()
     {
@@ -23,6 +25,8 @@ public class FrogControllerNew : MonoBehaviour
 
         int skin = PlayerPrefs.GetInt("skin", 0);
         SetSkin(skin);
+        int hat = PlayerPrefs.GetInt("hat", 10);
+        SetHat(hat);
     }
 
     void Update()
@@ -72,6 +76,21 @@ public class FrogControllerNew : MonoBehaviour
     public void SetSkin(int skin)
     {
         mesh.material = skins[skin];
+    }
+
+    public void SetHat(int hat)
+    {
+        for (int i = 0; i < hats.Length; i++)
+        {
+            if(i == hat)
+            {
+                hats[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                hats[i].gameObject.SetActive(false);
+            }
+        }
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit)
