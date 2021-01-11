@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
     public GameObject shop;
+    public AudioSource buttonSound;
     public void StartGame()
     {
         SceneManager.LoadScene("game");
+        buttonSound.Play();
     }
 
     public void EndGame()
@@ -18,6 +20,7 @@ public class Menu : MonoBehaviour
 
     public void OpenShop()
     {
+        buttonSound.Play();
         shop.SetActive(true);
     }
 

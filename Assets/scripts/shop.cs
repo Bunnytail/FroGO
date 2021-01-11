@@ -16,6 +16,10 @@ public class shop : MonoBehaviour
     public GameObject buttonEquip;
     private int skin;
     private int hat;
+    public AudioSource buySound;
+    public AudioSource moneySound;
+    public AudioSource buttonSound;
+
     void Start()
     {
         Refresh();
@@ -32,6 +36,7 @@ public class shop : MonoBehaviour
         }
         frog.SetSkin(skin);
         Refresh();
+        buttonSound.Play();
     }
     public void Prawoklik()
     {
@@ -43,6 +48,7 @@ public class shop : MonoBehaviour
         }
         frog.SetSkin(skin);
         Refresh();
+        buttonSound.Play();
     }
 
     public void Buy()
@@ -52,16 +58,21 @@ public class shop : MonoBehaviour
         int points = PlayerPrefs.GetInt("points", 0);
         if (points >= price)
         {
+            buySound.Play();
+            moneySound.Play();
             points -= price;
             PlayerPrefs.SetInt(skinname, 1);
             PlayerPrefs.SetInt("points", points);
             Refresh();
         }
+        buttonSound.Play();
     }
 
     public void Equip()
     {
         PlayerPrefs.SetInt("skin", skin);
+        buySound.Play();
+        buttonSound.Play();
 
     }
 
@@ -75,6 +86,7 @@ public class shop : MonoBehaviour
         }
         frog.SetHat(hat);
         Refresh();
+        buttonSound.Play();
     }
     public void Prawoklikhat()
     {
@@ -86,6 +98,7 @@ public class shop : MonoBehaviour
         }
         frog.SetHat(hat);
         Refresh();
+        buttonSound.Play();
     }
 
     public void Buyhat()
@@ -95,17 +108,22 @@ public class shop : MonoBehaviour
         int points = PlayerPrefs.GetInt("points", 0);
         if (points >= price)
         {
+            buySound.Play();
+            moneySound.Play();
             points -= price;
             PlayerPrefs.SetInt(skinname, 1);
             PlayerPrefs.SetInt("points", points);
             Refresh();
             Equiphat();
         }
+        buttonSound.Play();
     }
 
     public void Equiphat()
     {
         PlayerPrefs.SetInt("hat", hat);
+        buySound.Play();
+        buttonSound.Play();
 
     }
 
@@ -117,7 +135,7 @@ public class shop : MonoBehaviour
         bool bought = PlayerPrefs.GetInt(skinname, 0) == 1;
 
         pointstext.text = "points: " + PlayerPrefs.GetInt("points", 0);
-        textbuy.text = "BUY FOR " + price;
+        textbuy.text = "" + price;
         if (skin == 0 || bought)
         {
             buttonBuy.SetActive(false);
@@ -134,7 +152,7 @@ public class shop : MonoBehaviour
         bool boughthat = PlayerPrefs.GetInt(hatname, 0) == 1;
 
        
-        textbuyhat.text = "BUY FOR " + pricehat;
+        textbuyhat.text = "" + pricehat;
         if (boughthat)
         {
             buttonBuyhat.SetActive(false);

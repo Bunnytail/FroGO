@@ -16,6 +16,10 @@ public class FrogControllerNew : MonoBehaviour
     private CharacterController cc;
     private Animator anim;
     private Vector3 moveDirection = Vector3.zero;
+    public AudioSource jumpSound;
+    public AudioSource coinSound;
+    public AudioSource deathSound;
+    private bool dead = false;
 
 
     void Start()
@@ -34,6 +38,7 @@ public class FrogControllerNew : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) && cc.isGrounded)
         {
             anim.SetTrigger("Jump");
+            jumpSound.Play();
         }
 
         if(Input.GetKey(KeyCode.LeftArrow))
@@ -70,6 +75,7 @@ public class FrogControllerNew : MonoBehaviour
         points += 1;
         currentpoints += 1;
         PlayerPrefs.SetInt("points", points);
+        coinSound.Play();
        
     }
 
@@ -95,9 +101,11 @@ public class FrogControllerNew : MonoBehaviour
 
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if(hit.gameObject.tag == "death")
+        if(hit.gameObject.tag == "death" && !dead)
         {
+            dead = true;
             deathMenu.ToggleEndMenu();
+            deathSound.Play();
         }
     }
 }
