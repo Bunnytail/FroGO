@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class FrogControllerNew : MonoBehaviour
 {
-    public float gravity = 100.0f;
+    public float gravity = 10.0f;
     public int points = 0;
     public int currentpoints = 0;
     public Material[] skins;

@@ -1338,9 +1338,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4757238692686959133, guid: 373213bf30d0cb9fd88a10e09cd96739,
         type: 3}
+      propertyPath: skins.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757238692686959133, guid: 373213bf30d0cb9fd88a10e09cd96739,
+        type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4757238692686959133, guid: 373213bf30d0cb9fd88a10e09cd96739,
+        type: 3}
+      propertyPath: skins.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: dc921615fbb8e9b45a9f26333181defb, type: 2}
+    - target: {fileID: 4757238692686959133, guid: 373213bf30d0cb9fd88a10e09cd96739,
+        type: 3}
+      propertyPath: skins.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dae97bc9019646345814cf03d5da7b60, type: 2}
+    - target: {fileID: 4757238692686959133, guid: 373213bf30d0cb9fd88a10e09cd96739,
+        type: 3}
+      propertyPath: skins.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 78b43a06b2c32044ea7fdddc34cfd985, type: 2}
+    - target: {fileID: 4757238692686959133, guid: 373213bf30d0cb9fd88a10e09cd96739,
+        type: 3}
+      propertyPath: skins.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: ea28c16c8acd5b74e884782d38fb5edb, type: 2}
     - target: {fileID: 5012403168455669058, guid: 373213bf30d0cb9fd88a10e09cd96739,
         type: 3}
       propertyPath: m_LocalPosition.x
