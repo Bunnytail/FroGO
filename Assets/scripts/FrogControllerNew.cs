@@ -20,6 +20,7 @@ public class FrogControllerNew : MonoBehaviour
     public AudioSource coinSound;
     public AudioSource deathSound;
     private bool dead = false;
+    private bool jump = false;
 
 
     void Start()
@@ -35,27 +36,37 @@ public class FrogControllerNew : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && cc.isGrounded)
+
+        if(Input.GetKeyDown(KeyCode.Space))
         {
+            jump = true;
+        }
+
+        if(jump && cc.isGrounded)
+        {
+            jump = false;
             anim.SetTrigger("Jump");
             jumpSound.Play();
         }
 
+        bool jumping = anim.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Armature|LONGJUMP NEW";
+
+		float rotation = 120 * Time.deltaTime;
         if(Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.Rotate(new Vector3(0.0f, -2.0f, 0.0f));
+            transform.Rotate(new Vector3(0.0f, -rotation, 0.0f));
         }
 
         if(Input.GetKey(KeyCode.RightArrow))
         {
-            transform.Rotate(new Vector3(0.0f, 2.0f, 0.0f));
+            transform.Rotate(new Vector3(0.0f, rotation, 0.0f));
         }
 
         if(cc.isGrounded)
         {
             moveDirection.y = -cc.stepOffset / Time.deltaTime;
         }
-        else 
+        else if (!jumping)
         {
             moveDirection.y -= gravity * Time.deltaTime;
         }
