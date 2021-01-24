@@ -46,18 +46,21 @@ public class FrogControllerNew : MonoBehaviour
         {
             jump = false;
             anim.SetTrigger("Jump");
-            jumpSound.Play();
+            if(PlayerPrefs.GetInt("sound_on", 1) == 1)
+            {
+                jumpSound.Play();
+            }
         }
 
         bool jumping = anim.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Armature|LONGJUMP NEW";
 
 		float rotation = 120 * Time.deltaTime;
-        if(Input.GetKey(KeyCode.LeftArrow))
+        if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             transform.Rotate(new Vector3(0.0f, -rotation, 0.0f));
         }
 
-        if(Input.GetKey(KeyCode.RightArrow))
+        if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             transform.Rotate(new Vector3(0.0f, rotation, 0.0f));
         }
@@ -86,7 +89,10 @@ public class FrogControllerNew : MonoBehaviour
         points += 1;
         currentpoints += 1;
         PlayerPrefs.SetInt("points", points);
-        coinSound.Play();
+        if(PlayerPrefs.GetInt("sound_on", 1) == 1)
+        {
+            coinSound.Play();
+        }
        
     }
 
@@ -116,7 +122,10 @@ public class FrogControllerNew : MonoBehaviour
         {
             dead = true;
             deathMenu.ToggleEndMenu();
-            deathSound.Play();
+            if(PlayerPrefs.GetInt("sound_on", 1) == 1)
+            {
+                deathSound.Play();
+            }
         }
     }
 }

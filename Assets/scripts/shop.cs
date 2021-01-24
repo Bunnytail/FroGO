@@ -35,7 +35,10 @@ public class shop : MonoBehaviour
         }
         frog.SetSkin(skin);
         Refresh();
-        buttonSound.Play();
+        if(PlayerPrefs.GetInt("sound_on", 1) == 1)
+        {
+            buttonSound.Play();
+        }
     }
     public void Prawoklik()
     {
@@ -47,7 +50,10 @@ public class shop : MonoBehaviour
         }
         frog.SetSkin(skin);
         Refresh();
-        buttonSound.Play();
+        if(PlayerPrefs.GetInt("sound_on", 1) == 1)
+        {
+            buttonSound.Play();
+        }
     }
 
     public void Buy()
@@ -57,21 +63,30 @@ public class shop : MonoBehaviour
         int points = PlayerPrefs.GetInt("points", 0);
         if (points >= price)
         {
-            buySound.Play();
-            moneySound.Play();
+            if(PlayerPrefs.GetInt("sound_on", 1) == 1)
+            {
+                buySound.Play();
+                moneySound.Play();
+            }
             points -= price;
             PlayerPrefs.SetInt(skinname, 1);
             PlayerPrefs.SetInt("points", points);
             Refresh();
         }
-        buttonSound.Play();
+        if(PlayerPrefs.GetInt("sound_on", 1) == 1)
+        {
+            buttonSound.Play();
+        }
     }
 
     public void Equip()
     {
         PlayerPrefs.SetInt("skin", skin);
-        buySound.Play();
-        buttonSound.Play();
+        if(PlayerPrefs.GetInt("sound_on", 1) == 1)
+        {
+            buttonSound.Play();
+            buySound.Play();
+        }
 
     }
 
@@ -85,7 +100,10 @@ public class shop : MonoBehaviour
         }
         frog.SetHat(hat);
         Refresh();
-        buttonSound.Play();
+        if(PlayerPrefs.GetInt("sound_on", 1) == 1)
+        {
+            buttonSound.Play();
+        }
     }
     public void Prawoklikhat()
     {
@@ -97,7 +115,10 @@ public class shop : MonoBehaviour
         }
         frog.SetHat(hat);
         Refresh();
-        buttonSound.Play();
+        if(PlayerPrefs.GetInt("sound_on", 1) == 1)
+        {
+            buttonSound.Play();
+        }
     }
 
     public void Buyhat()
@@ -107,22 +128,31 @@ public class shop : MonoBehaviour
         int points = PlayerPrefs.GetInt("points", 0);
         if (points >= price)
         {
-            buySound.Play();
-            moneySound.Play();
+            if(PlayerPrefs.GetInt("sound_on", 1) == 1)
+            {
+                buySound.Play();
+                moneySound.Play();
+            }
             points -= price;
             PlayerPrefs.SetInt(skinname, 1);
             PlayerPrefs.SetInt("points", points);
             Refresh();
             Equiphat();
         }
-        buttonSound.Play();
+        if(PlayerPrefs.GetInt("sound_on", 1) == 1)
+        {
+            buttonSound.Play();
+        }
     }
 
     public void Equiphat()
     {
         PlayerPrefs.SetInt("hat", hat);
-        buySound.Play();
-        buttonSound.Play();
+        if(PlayerPrefs.GetInt("sound_on", 1) == 1)
+        {
+            buySound.Play();
+            buttonSound.Play();
+        }
 
     }
 

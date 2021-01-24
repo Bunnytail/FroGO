@@ -10,7 +10,10 @@ public class Menu : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("game");
-        buttonSound.Play();
+        if(PlayerPrefs.GetInt("sound_on", 1) == 1)
+        {
+            buttonSound.Play();
+        }
     }
 
     public void EndGame()
@@ -20,7 +23,10 @@ public class Menu : MonoBehaviour
 
     public void OpenShop()
     {
-        buttonSound.Play();
+        if(PlayerPrefs.GetInt("sound_on", 1) == 1)
+        {
+            buttonSound.Play();
+        }
         shop.SetActive(true);
     }
 
