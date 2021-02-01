@@ -59,7 +59,7 @@ public class shop : MonoBehaviour
     public void Buy()
     {
         string skinname = "skin_" + skin;
-        int price = skin * 2;
+        int price = 3+ skin * 12;
         int points = PlayerPrefs.GetInt("points", 0);
         if (points >= price)
         {
@@ -124,7 +124,7 @@ public class shop : MonoBehaviour
     public void Buyhat()
     {
         string skinname = "hat_" + hat;
-        int price = 2+ hat * 2;
+        int price = 2+ hat * 8;
         int points = PlayerPrefs.GetInt("points", 0);
         if (points >= price)
         {
@@ -160,7 +160,7 @@ public class shop : MonoBehaviour
     public void Refresh()
     {
         string skinname = "skin_" + skin;
-        int price = skin * 2;
+        int price = 3+ skin * 12;
         bool bought = PlayerPrefs.GetInt(skinname, 0) == 1;
 
         pointstext.text = "points: " + PlayerPrefs.GetInt("points", 0);
@@ -177,7 +177,7 @@ public class shop : MonoBehaviour
         }
 
         string hatname = "hat_" + hat;
-        int pricehat = 2+ hat * 2;
+        int pricehat = 2+ hat * 8;
         bool boughthat = PlayerPrefs.GetInt(hatname, 0) == 1;
 
        
