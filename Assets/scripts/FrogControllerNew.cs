@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class FrogControllerNew : MonoBehaviour
@@ -12,6 +13,7 @@ public class FrogControllerNew : MonoBehaviour
     public GameObject[] hats;
     public SkinnedMeshRenderer mesh;
     public Text scoreText;
+    public PauseMenu pauseMenu;
     public DeathMenu deathMenu;
     private CharacterController cc;
     private Animator anim;
@@ -32,10 +34,17 @@ public class FrogControllerNew : MonoBehaviour
         SetSkin(skin);
         int hat = PlayerPrefs.GetInt("hat", 10);
         SetHat(hat);
+
+        Time.timeScale = 1.0f;
     }
 
     void Update()
     {
+
+        if(pauseMenu.gameObject.activeSelf || deathMenu.gameObject.activeSelf)
+        {
+            return;
+        }
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
@@ -72,6 +81,16 @@ public class FrogControllerNew : MonoBehaviour
         else if (!jumping)
         {
             moveDirection.y -= gravity * Time.deltaTime;
+        }
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            pauseMenu.TogglePauseMenu();
+        }
+
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("game");
         }
 
         scoreText.text = "" + currentpoints;

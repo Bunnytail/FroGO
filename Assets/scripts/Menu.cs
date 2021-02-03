@@ -7,6 +7,13 @@ public class Menu : MonoBehaviour
 {
     public GameObject shop;
     public AudioSource buttonSound;
+
+
+    void Start()
+    {
+        Time.timeScale = 1.0f;
+    }
+
     public void StartGame()
     {
         SceneManager.LoadScene("game");

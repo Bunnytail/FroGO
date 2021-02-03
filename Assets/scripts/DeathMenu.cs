@@ -14,6 +14,14 @@ public class DeathMenu : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Return))
+        {
+            Restart();
+        }
+    }
+
     public void ToggleEndMenu()
     {
         int points = PlayerPrefs.GetInt("points", 0);
