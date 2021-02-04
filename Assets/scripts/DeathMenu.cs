@@ -33,4 +33,9 @@ public class DeathMenu : MonoBehaviour
     {
         SceneManager.LoadScene("game");
     }
+
+    public void ExitGame()
+    {
+        SceneManager.LoadScene("menu");
+    }
 }
