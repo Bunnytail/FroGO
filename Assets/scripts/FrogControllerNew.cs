@@ -40,6 +40,11 @@ public class FrogControllerNew : MonoBehaviour
 
     void Update()
     {
+        //Debug.Log(anim.speed);
+        if(anim.speed < 2.2f)
+        {
+            anim.speed += Time.deltaTime * 0.01f;
+        }
 
         if(pauseMenu.gameObject.activeSelf || deathMenu.gameObject.activeSelf)
         {
